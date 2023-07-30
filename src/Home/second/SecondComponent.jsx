@@ -16,10 +16,12 @@ const SecondComponent = () => {
                 <h1 className='text-2xl font-bold'>FEATURED CATEGORIES</h1>
                 <p>Get your desired product from featured category</p>
             </div>
+
+
             <div className='grid grid-cols-4 lg:grid-cols-8 lg:mr-12 lg:ml-12 sm:ml-4'>
                 {categories.map(category => (
                     <div key={category._id}>
-                        <Link to={`/product/${category.name}`}><img className="h-12 w-12" src={category.image_url} alt="" /></Link>
+                        <Link to={`/product/${category.name}`} state={category.name}><img className="h-12 w-12" src={category.image_url} alt="" /></Link>
                     </div>
                 ))}
             </div>
