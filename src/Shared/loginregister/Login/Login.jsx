@@ -1,17 +1,17 @@
 import { useContext, useState } from "react";
-import { AuthContext } from "../../../AuthProvider/Authprovider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../authprovider/AuthProvider";
 
 
 const Login = () => {
-    const { loginUser,handleWithGoogle } = useContext(AuthContext)
+    const { loginUser, handleWithGoogle } = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [success, setSuccess] = useState();
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/';
-
+    // fetch('http://localhost:5000//all-user')
 
     const handleLogin = event => {
         event.preventDefault();
@@ -50,7 +50,7 @@ const Login = () => {
     }
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero login-auth min-h-screen bg-base-200">
                 <div className="hero-content">
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleLogin} className="card-body w-96">
@@ -58,11 +58,11 @@ const Login = () => {
                             <p className="text-xl text-slate-500">Welcome back ! mobile gadget</p>
                             <button onClick={loginWithGooglePopup} className="btn btn-primary"> G Login With Google</button>
                             <div className="form-control">
-                            {errorMessage && <p className="text-red-500">{errorMessage}</p>}
-                        {
-                            success && (
-                                <div className="alert  alert-success mb-4">{success}</div>
-                            )}
+                                {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+                                {
+                                    success && (
+                                        <div className="alert  alert-success mb-4">{success}</div>
+                                    )}
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
@@ -74,12 +74,12 @@ const Login = () => {
                                 </label>
                                 <input name="password" type={showPassword ? "text" : "password"} placeholder="password" className="input text-black input-bordered" />
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <a href="#" className="label-text-alt link show-password link-hover">Forgot password?</a>
                                 </label>
                             </div>
                             <div className="form-control">
                                 <label className="label cursor-pointer">
-                                    <span className="label-text">Show Password</span>
+                                    <span className="label-text show-password">Show Password</span>
                                     <input onChange={handleCheckboxChange} type="checkbox" checked={showPassword} className="checkbox checkbox-primary" />
                                 </label>
                             </div>
@@ -96,3 +96,58 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
+
+
+
+
+
+
+
+
+// import { useContext } from "react";
+// import { AuthContext } from "../../../Shared/Providers/AuthProviders";
+// import { useLocation, useNavigate } from "react-router-dom";
+// import { FaGoogle } from "react-icons/fa";
+
+
+// const SocialLogin = () => {
+//     const { handleWithGoogle} = useContext(AuthContext)
+//     const navigate = useNavigate();
+//     const location = useLocation();
+
+//     const from = location.state?.from?.pathname || "/";
+//     const loginWithGooglePopup = () => {
+//         handleWithGoogle()
+//             .then(result => {
+//                 const loggedInUser = result.user;
+//                 console.log(loggedInUser);
+//                 const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email,photoUrl:loggedInUser.photoURL }
+//                 fetch('https://summer-school-server-tau.vercel.app/users', {
+//                     method: 'POST',
+//                     headers: {
+//                         'content-type': 'application/json'
+//                     },
+//                     body: JSON.stringify(saveUser)
+//                 })
+//                     .then(res => res.json())
+//                     .then(() => {
+//                         navigate(from, { replace: true });
+//                     })
+//             })
+//     }
+//     return (
+//         <div>
+//             <div className="divider"></div>
+//             <div className="text-center pb-4">
+//                 <button onClick={loginWithGooglePopup} className="btn btn-circle btn-outline">
+//                     <FaGoogle></FaGoogle>
+//                 </button>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default SocialLogin;

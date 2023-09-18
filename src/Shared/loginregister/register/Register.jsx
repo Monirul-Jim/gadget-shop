@@ -2,11 +2,16 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
-import { AuthContext } from "../../../AuthProvider/Authprovider";
+import { AuthContext } from "../../../authprovider/AuthProvider";
 
+
+
+
+// const img_hosting_token = import.meta.env.VITE_IMGBB_IMAGE_HOSTING;
 const Register = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { registerUser, updateUserProfile } = useContext(AuthContext)
+    // const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
     const navigate = useNavigate()
     const onSubmit = data => {
         const { password, confirmPassword } = data;
@@ -29,7 +34,7 @@ const Register = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const saveUser = { name: data.name, email: data.email }
-                        fetch('https://summer-school-server-tau.vercel.app/users', {
+                        fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -58,7 +63,7 @@ const Register = () => {
             })
     };
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero login-auth min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="card dark light flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body w-96">
@@ -73,7 +78,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
-                            <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered text-black" />
+                            <input type="text" {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered text-black" />
                             {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
                         </div>
                         <div className="form-control">
