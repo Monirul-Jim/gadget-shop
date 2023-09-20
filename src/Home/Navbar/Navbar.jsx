@@ -79,11 +79,6 @@ const Navbar = ({ toggleTheme }) => {
 
 
 
-
-
-
-
-
       {user ? (
         <div className="relative mt-2 md:mt-0 ml-4">
           <button
