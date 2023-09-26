@@ -9,6 +9,7 @@ import users from '../../assets/user.webp'
 import cart from '../../assets/cart.webp'
 import gift from '../../assets/gift.webp'
 import { useTheme } from "next-themes";
+import useGetProduct from "../../hooks/useGetProduct";
 
 
 const Navbar = ({ toggleTheme }) => {
@@ -16,6 +17,7 @@ const Navbar = ({ toggleTheme }) => {
   const [showLogout, setShowLogout] = useState(false);
   // const [course] = useCourses()
   const [isOpen, setIsOpen] = useState(false);
+  const [product] = useGetProduct()
 
   const [showSpinner, setShowSpinner] = useState(false);
 
@@ -49,8 +51,8 @@ const Navbar = ({ toggleTheme }) => {
         </Link>
       </li>
       <li>
-        <Link > <img className="h-8" src={cart} alt="" />
-          Cart
+        <Link to='/order-item-review' > <img className="h-8" src={cart} alt="" />
+          <span> Cart({product.length || 0})</span>
           <br />
           Add Item
         </Link>
@@ -106,7 +108,7 @@ const Navbar = ({ toggleTheme }) => {
             id="user-dropdown"
           >
             {showSpinner ? (
-              <div className="flex justify-center p-4">
+              <div className="flex justify-center p-4 ">
                 <div role="status">
                   <svg
                     aria-hidden="true"
@@ -129,13 +131,13 @@ const Navbar = ({ toggleTheme }) => {
               </div>
             ) : (
               <ul
-                className="py-2 bg-white dark:bg-black"
+                className="py-2 bg-white  dark:bg-black"
                 aria-labelledby="user-menu-button"
               >
                 <li>
                   <Link
                     to="dashboard-for-all"
-                    className="block px-4 py-2 text-2xl text-black dark:text-white"
+                    className="block px-4 py-2 z-50 text-2xl text-black dark:text-white"
                   >
                     Dashboard
                   </Link>
@@ -143,7 +145,7 @@ const Navbar = ({ toggleTheme }) => {
                 <li>
                   <Link
                     to="#"
-                    className="block px-4 py-2 text-2xl text-black dark:text-white"
+                    className="block px-4 z-50 py-2 text-2xl text-black dark:text-white"
                   >
                     Settings
                   </Link>

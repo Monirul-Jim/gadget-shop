@@ -1,70 +1,36 @@
-import { useLoaderData } from "react-router-dom";
-const BuyNow = () => {
-    const loader = useLoaderData()
-    const handleConfirmOrder = (event) => {
-        event.preventDefault()
-        const form = event.target;
-        const name = form.name.value
-        const last = form.last.value
-        const email = form.email.value
-        const number = form.number.value
-        const division = form.division.value
-        const district = form.district.value
-        const area = form.area.value
-        const post = form.post.value
-        const address = form.address.value
-        const feedback = form.feedback.value
-        const price = loader?.price
-        const image = loader?.product_url
-        const product = loader?.product_name;
-        const ram = loader?.ram_rom
-        const id = loader?._id
-        const allAddProduct = { name, last, email, number, division, district, area, post, address, feedback, price, image, product, ram, id }
-        fetch('http://localhost:5000/confirm-order-post', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(allAddProduct)
-
-        })
-            .then(res => res.json())
-            .then(result => {
-                window.location.replace(result.url)
-                console.log(result);
-            })
 
 
-    }
+
+const AddCartCheckout = () => {
     return (
-        <div className="flex justify-center lg:mt-48">
-            <form onSubmit={handleConfirmOrder} className="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <>
+            <h1>Customer Information</h1>
+            <div>
                 <div className="w-full md:w-96">
-                    <h1 className="mb-6 mt-6">Customer Information</h1>
                     <div className="flex flex-col md:flex-row md:gap-8">
                         <div className="mb-4 md:w-1/2">
                             <label className="text-sm font-semibold">First Name</label>
-                            <input name="name" type="text" id="first-name" placeholder="Type here" className="input block input-bordered input-primary w-full" />
+                            <input type="text" id="first-name" placeholder="Type here" className="input block input-bordered input-primary w-full" />
                         </div>
                         <div className="mb-4 md:w-1/2">
                             <label className="text-sm font-semibold">Last Name</label>
-                            <input name="last" type="text" id="last-name" placeholder="Type here" className="input block input-bordered input-primary w-full" />
+                            <input type="text" id="last-name" placeholder="Type here" className="input block input-bordered input-primary w-full" />
                         </div>
                     </div>
                     <div className="mb-4">
                         <label className="text-sm font-semibold">Email</label>
-                        <input name="email" type="email" id="email" placeholder="Type here" className="input block input-bordered input-primary w-full" />
+                        <input type="email" id="email" placeholder="Type here" className="input block input-bordered input-primary w-full" />
                     </div>
 
                     <div className="mb-4">
                         <label className="text-sm font-semibold">Phone Number</label>
-                        <input name="number" type="number" id="phone" placeholder="Type here" className="input block input-bordered input-primary w-full" />
+                        <input type="number" id="phone" placeholder="Type here" className="input block input-bordered input-primary w-full" />
                     </div>
 
                     <div className="flex flex-col md:flex-row md:gap-8 mb-4">
                         <div className="mb-4 md:w-1/2">
                             <label className="text-sm font-semibold">Choose Your Division</label>
-                            <select name="division" id="division" className="input border border-slate-400 w-full">
+                            <select id="division" className="input border border-slate-400 w-full">
                                 <option value="">Choose Your Division</option>
                                 <option value="Rajshahi">Rajshahi</option>
                                 <option value="Dhaka">Dhaka</option>
@@ -78,7 +44,7 @@ const BuyNow = () => {
                         </div>
                         <div className="mb-4 md:w-1/2">
                             <label className="text-sm font-semibold">Choose Your District</label>
-                            <select name="district" id="district" className="input border border-slate-400 w-full">
+                            <select id="district" className="input border border-slate-400 w-full">
                                 <option value="">Choose Your District</option>
                                 <option value="Bagerhat">Bagerhat</option>
                                 <option value="Bandarban">Bandarban</option>
@@ -152,84 +118,36 @@ const BuyNow = () => {
                     <div className="flex flex-col md:flex-row md:gap-8">
                         <div className="mb-4 md:w-1/2">
                             <label className="text-sm font-semibold">Area</label>
-                            <input name="area" type="text" id="area" placeholder="Type here" className="input block input-bordered input-primary w-full" />
+                            <input type="text" id="area" placeholder="Type here" className="input block input-bordered input-primary w-full" />
                         </div>
                         <div className="mb-4 md:w-1/2">
                             <label className="text-sm font-semibold">Post Code</label>
-                            <input name="post" type="number" id="post-code" placeholder="Type here" className="input block input-bordered input-primary w-full" />
+                            <input type="number" id="post-code" placeholder="Type here" className="input block input-bordered input-primary w-full" />
                         </div>
                     </div>
 
                     <div className="mb-4">
                         <label className="text-sm font-semibold">Address</label>
-                        <input name="address" type="text" id="address" placeholder="Type here" className="input block input-bordered input-primary w-full" />
+                        <input type="text" id="address" placeholder="Type here" className="input block input-bordered input-primary w-full" />
                     </div>
 
                     <div className="mb-4">
                         <label className="text-sm font-semibold">Something That We Can Find Easily</label>
-                        <input name="feedback" type="text" id="something" placeholder="Type here" className="input block input-bordered input-primary w-full" />
+                        <input type="text" id="something" placeholder="Type here" className="input block input-bordered input-primary w-full" />
                     </div>
                 </div>
-                <div>
-                    {/* <div className="card w-96 bg-base-100 shadow-xl">
-                        <figure><img src={loader?.product_url} alt="Shoes" /></figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Product Name: {loader?.product_name} {loader?.ram_rom}</h2>
-                            <p>Price: {loader?.price}</p>
-                        </div>
-                    </div> */}
-                    <div className="overflow-x-auto">
-                        <table className="table">
-                            {/* head */}
-                            <thead>
-                                <tr>
-                                    <th>Product Image</th>
-                                    <th>Product Name</th>
-                                    <th>Ram/Rom</th>
-                                    <th>Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div className="flex items-center space-x-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={loader?.product_url} alt="Phone Pic" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><h1>${loader?.product_name}</h1></td>
-                                    <td><h1>{loader?.ram_rom}</h1></td>
-                                    <td>${loader?.price}</td>
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-                    </div>
-
-
-
-
-                    <div className="flex justify-end">
-                        <button type="submit" className=" bg-orange-400 p-1 mt-2 px-4 font-semibold rounded-md text-white" >Confirm Order</button>
-                    </div>
 
 
 
 
 
 
+            </div>
 
 
 
-
-                </div>
-            </form>
-        </div>
+        </>
     );
 };
 
-export default BuyNow;
+export default AddCartCheckout;

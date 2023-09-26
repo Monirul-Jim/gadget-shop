@@ -11,7 +11,6 @@ const FeaturedProducts = () => {
         fetch('http://localhost:5000/product-collections')
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 const bestSellerCategory = data.filter(item => item.sub_category === 'best_sellers')
                 setBestSeller(bestSellerCategory)
                 const bestDealCategory = data.filter(item => item.sub_category === 'best_deal')
