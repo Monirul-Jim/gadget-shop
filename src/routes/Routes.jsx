@@ -10,6 +10,7 @@ import AllUsers from "../Dashboard/AllUserInfo/AllUsers";
 import AdminRoutes from "./AdminRoutes";
 import LoginAuth from "../Shared/loginregister/Login/LoginAuth";
 import RegisterAuth from "../Shared/loginregister/register/RegisterAuth";
+import OrderItemReview from "../components/OrderItemReview/OrderItemReview";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
     {
       path: '/add-product',
       element: <AddProducts></AddProducts>
+    },
+    {
+      path: '/order-item-review',
+      element: <OrderItemReview></OrderItemReview>
     },
     {
       path: '/product/:id',
