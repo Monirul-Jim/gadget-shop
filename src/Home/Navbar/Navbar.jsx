@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 // import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../authprovider/AuthProvider";
 import image from '../../assets/shop-logo.webp'
@@ -8,7 +8,6 @@ import shop from '../../assets/shop.webp'
 import users from '../../assets/user.webp'
 import cart from '../../assets/cart.webp'
 import gift from '../../assets/gift.webp'
-import { useTheme } from "next-themes";
 import useGetProduct from "../../hooks/useGetProduct";
 
 
@@ -27,6 +26,33 @@ const Navbar = ({ toggleTheme }) => {
     setTimeout(() => {
       setShowSpinner(false);
     }, 2000);
+  };
+
+
+
+  const [searchText, setSearchText] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [searching, setSearching] = useState(false);
+
+  const handleSearch = () => {
+    setSearching(true)
+    fetch(`http://localhost:5000/search-product/${searchText}`)
+
+
+      .then(res => res.json())
+      .then(data => {
+        setSearchResults(data);
+        document.getElementById('my_modal_3').showModal();
+
+      })
+      .finally(() => {
+        setSearching(false)
+      })
+  }
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
   };
 
   useEffect(() => {
@@ -200,10 +226,53 @@ const Navbar = ({ toggleTheme }) => {
           </div>
           <Link className=""><img className="mr-8 h-12 mt-1" src={image} alt="" /></Link>
           <div className="form-control ml-6">
-            <input type="text" placeholder="Search" className="input input-accent w-24 md:w-auto" />
+            <input
+              onChange={(e) => setSearchText(e.target.value)}
+              onKeyPress={handleKeyPress}
+              type="text"
+              placeholder="Search"
+              className="input input-accent w-24 md:w-auto"
+            />
           </div>
-          <button className="btn btn-primary mr-6 ml-2">Search</button>
+          <button onClick={handleSearch} className="btn btn-primary mr-6 ml-2">
+            {searching ? 'Searching...' : 'Search'}
+          </button>
         </div>
+        <dialog id="my_modal_3" className="modal ">
+          <div className="modal-box w-11/12 max-w-5xl">
+            <form method="dialog ">
+              {/* if there is a button in the form, it will close the modal */}
+              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => document.getElementById('my_modal_3').close()}>✕</button>
+            </form>
+            <h3 className="font-bold text-lg">Search Results</h3>
+            <ul className="grid grid-cols-1 lg:grid-cols-4">
+
+
+              {
+                searching ? (
+                  <div className="text-center">Searching...</div>
+                ) :
+                  (
+                    searchResults.map((result, index) => (
+                      <div key={result._id} >
+                        <Link to={`/single-product/${result._id}`}>
+                          <div className=" mt-8 max-w-lg mx-auto card  relative w-48 h-72  rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 border border-transparent hover:border-blue-500  hover:shadow-blue-300">
+                            <img className=" mx-auto" src={result.product_url} alt="" />
+                            <div className=" ">
+                              <h1 className="text-center">{result.product_name}</h1>
+                              <p className="text-xl text-center">${result.price}</p>
+                            </div>
+                          </div>
+                        </Link>
+
+                      </div>
+
+                    ))
+                  )
+              }
+            </ul>
+          </div>
+        </dialog>
 
         <div className="navbar-center hidden lg:flex  justify-start">
           <ul className="menu menu-horizontal px-1 text-white">

@@ -122,3 +122,7 @@ body.light {
   background-color: black;
   color: #f9fafb;
 }
+.dark .modal-box {
+  background-color: black;
+  color: #f9fafb;
+}
