@@ -30,8 +30,8 @@ const BuyNow = () => {
         })
             .then(res => res.json())
             .then(result => {
+                console.log(result.url);
                 window.location.replace(result.url)
-                console.log(result);
             })
 
 

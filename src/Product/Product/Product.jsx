@@ -185,10 +185,10 @@ const Product = () => {
             }
             {
                 speakers && <>
-                     <TabPanel><ProductTabFunction item={amazoneSpeakers}></ProductTabFunction> </TabPanel>
-                     <TabPanel><ProductTabFunction item={appleSpeakers}></ProductTabFunction> </TabPanel>
-                     <TabPanel><ProductTabFunction item={jblSpeakers}></ProductTabFunction> </TabPanel>
-                     <TabPanel><ProductTabFunction item={marshallSpeakers}></ProductTabFunction> </TabPanel>
+                    <TabPanel><ProductTabFunction item={amazoneSpeakers}></ProductTabFunction> </TabPanel>
+                    <TabPanel><ProductTabFunction item={appleSpeakers}></ProductTabFunction> </TabPanel>
+                    <TabPanel><ProductTabFunction item={jblSpeakers}></ProductTabFunction> </TabPanel>
+                    <TabPanel><ProductTabFunction item={marshallSpeakers}></ProductTabFunction> </TabPanel>
                 </>
             }
             {
