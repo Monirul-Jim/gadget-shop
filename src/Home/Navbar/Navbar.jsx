@@ -9,6 +9,7 @@ import users from '../../assets/user.webp'
 import cart from '../../assets/cart.webp'
 import gift from '../../assets/gift.webp'
 import useGetProduct from "../../hooks/useGetProduct";
+import { IoSearchSharp } from "react-icons/io5";
 
 
 const Navbar = ({ toggleTheme }) => {
@@ -66,7 +67,7 @@ const Navbar = ({ toggleTheme }) => {
   };
   const navOptions = (
     <ul className="flex flex-col nav_options space-y-4 lg:space-y-0 lg:flex-row lg:items-center">
-      <li>
+      <li className="text-white">
         <Link> Home</Link>
       </li>
       <li>
@@ -78,9 +79,11 @@ const Navbar = ({ toggleTheme }) => {
       </li>
       <li>
         <Link to='/order-item-review' > <img className="h-8" src={cart} alt="" />
-          <span> Cart({product.length || 0})</span>
-          <br />
-          Add Item
+          <div className="text-center">
+            <span> Cart({product.length || 0})</span>
+            <br />
+            Add Item
+          </div>
         </Link>
       </li>
       <li>
@@ -225,18 +228,29 @@ const Navbar = ({ toggleTheme }) => {
             </ul>
           </div>
           <Link className=""><img className="mr-8 h-12 mt-1" src={image} alt="" /></Link>
-          <div className="form-control ml-6">
+          {/* <div >
             <input
               onChange={(e) => setSearchText(e.target.value)}
               onKeyPress={handleKeyPress}
               type="text"
               placeholder="Search"
-              className="input input-accent w-24 md:w-auto"
+              className="input input-accent bg-transparent border border-gray-500 text-white w-24 md:w-auto"
             />
           </div>
-          <button onClick={handleSearch} className="btn btn-primary mr-6 ml-2">
-            {searching ? 'Searching...' : 'Search'}
-          </button>
+          <button onClick={handleSearch} className="btn text-3xl ml-2">
+            {searching ? 'Searching...' : <IoSearchSharp></IoSearchSharp>}
+          </button> */}
+
+          <div className="form-control">
+            <div className="input-group">
+              <input type="text" onChange={(e) => setSearchText(e.target.value)}
+                onKeyPress={handleKeyPress} placeholder="Search…" className="input input-bordered" />
+              <button onClick={handleSearch} className="btn btn-square">
+                {searching ? 'Searching...' : <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>}
+
+              </button>
+            </div>
+          </div>
         </div>
         <dialog id="my_modal_3" className="modal ">
           <div className="modal-box w-11/12 max-w-5xl">

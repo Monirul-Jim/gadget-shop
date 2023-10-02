@@ -7,6 +7,7 @@ const ManageOrderedProducts = () => {
         fetch('http://localhost:5000/confirmProduct')
         .then(res=> res.json())
         .then(data => {
+            console.log(data?.info?.cus_email)
             setOrderedProduct(data)
         })
     },[])
