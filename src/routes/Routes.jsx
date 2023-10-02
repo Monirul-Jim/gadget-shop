@@ -11,6 +11,10 @@ import AdminRoutes from "./AdminRoutes";
 import LoginAuth from "../Shared/loginregister/Login/LoginAuth";
 import RegisterAuth from "../Shared/loginregister/register/RegisterAuth";
 import OrderItemReview from "../components/OrderItemReview/OrderItemReview";
+import ManageOrderedProducts from "../Dashboard/ManageOrderedProducts/ManageOrderedProducts";
+import SellerHome from "../Dashboard/SellerHome/SellerHome";
+import UserHome from "../Dashboard/UserHome/UserHome";
+import UserOrderedItem from "../Dashboard/UserOrderedItem/UserOrderedItem";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +65,26 @@ const router = createBrowserRouter([
       {
         path: 'all-user-collection',
         element: <AdminRoutes><AllUsers /></AdminRoutes>
+      },
+      {
+        path: 'userHome',
+        element: <UserHome></UserHome>
+      },
+      {
+        path: 'userOrderedItem',
+        element: <UserOrderedItem></UserOrderedItem>
+      },
+      {
+        path: 'sellerHome',
+        element: <SellerHome></SellerHome>
+      },
+      {
+        path: 'addProduct',
+        element:<AddProducts></AddProducts>
+      },
+      {
+        path: 'manageOrderedProducts',
+        element:<ManageOrderedProducts></ManageOrderedProducts>
       }
     ]
   }

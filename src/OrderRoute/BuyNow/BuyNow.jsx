@@ -1,5 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../authprovider/AuthProvider";
 const BuyNow = () => {
+    const {user}= useContext(AuthContext)
     const loader = useLoaderData()
     const handleConfirmOrder = (event) => {
         event.preventDefault()
@@ -53,7 +57,7 @@ const BuyNow = () => {
                     </div>
                     <div className="mb-4">
                         <label className="text-sm font-semibold">Email</label>
-                        <input name="email" type="email" id="email" placeholder="Type here" className="input block input-bordered input-primary w-full" />
+                        <input name="email" value={user.email} type="email" id="email" placeholder="Type here" className="input block input-bordered input-primary w-full" />
                     </div>
 
                     <div className="mb-4">

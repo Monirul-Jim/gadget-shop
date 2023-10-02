@@ -38,8 +38,10 @@ const AddProducts = () => {
 
     }
     return (
-        <div className='bg-slate-300 p-4 add_products text-black'>
-            <form onSubmit={handleAddedClasses}>
+       <div className="bg-slate-300">
+         <div className=' p-8  text-black mt-20 container mx-auto'>
+            <p className=" text-2xl font-serif text-center mt-10 mb-16">---------ADD A PRODUCT--------------</p>
+            <form onSubmit={handleAddedClasses} className="container mx-auto" >
                 <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
@@ -128,10 +130,11 @@ const AddProducts = () => {
                     </div>
 
                 </div>
-                <input type="submit" className='btn btn-block mt-4' value="Add Toy" />
+                <input type="submit" className='btn ml-[45%] mt-8' value="Add Product" />
             </form>
 
         </div>
+       </div>
     );
 };
 
