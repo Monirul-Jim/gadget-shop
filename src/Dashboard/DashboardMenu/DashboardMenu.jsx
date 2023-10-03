@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import { FaAddressBook, FaHome, FaUsers } from 'react-icons/fa';
+import { FaAddressBook, FaHome, FaUsers, FaWallet } from 'react-icons/fa';
 import useAdmin from "../../hooks/useAdmin/useAdmin";
 import { useContext } from "react";
 import { AuthContext } from "../../authprovider/AuthProvider";
@@ -17,7 +17,7 @@ const DashboardMenu = () => {
                 <Outlet></Outlet>
 
             </div>
-            <div className="drawer-side bg-[#6e668e]">
+            <div className="drawer-side text-white bg-gray-800">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <div className='mb-5'>
                     <div className='flex justify-center mt-5 mb-2'><img className='rounded-full' src={
@@ -36,28 +36,31 @@ const DashboardMenu = () => {
                                 <Link ><FaHome></FaHome> Admin Home</Link>
                             </li>
                             <li className="text-2xl">
-                                <Link to='/dashboard-for-all/all-user-collection' > <FaUsers></FaUsers>All User</Link>
+                                <Link to='/dashboard-for-all/all-user-collection'><FaUsers></FaUsers>All User</Link>
                             </li>
                         </>
                     ) : isSeller ? (
                         <>
                             <li className="text-2xl">
-                                <Link ><FaHome></FaHome>seller</Link>
+                                <Link to="/dashboard-for-all/sellerHome"><FaHome></FaHome>Seller Home</Link>
+                            </li>
+                            {/* <li className="text-2xl">
+                                <Link><FaAddressBook></FaAddressBook></Link>
+                            </li> */}
+                            <li className="text-2xl">
+                                <Link to='/dashboard-for-all/manageOrderedProducts'><FaWallet></FaWallet>Ordered Products</Link>
                             </li>
                             <li className="text-2xl">
-                                <Link><FaAddressBook></FaAddressBook>seller</Link>
-                            </li>
-                            <li className="text-2xl">
-                                <Link>seller</Link>
+                                <Link to='/dashboard-for-all/addProduct'><FaWallet></FaWallet>Add Products</Link>
                             </li>
                         </>
                     ) : (
                         <>
                             <li className="text-2xl">
-                                <Link><FaHome></FaHome> User Home</Link>
+                                <Link to='/dashboard-for-all/userHome'><FaHome></FaHome> User Home</Link>
                             </li>
                             <li className="text-2xl">
-                                <Link >user</Link>
+                                <Link to="/dashboard-for-all/userOrderedItem">Ordered Products</Link>
                             </li>
                         </>
                     )}
