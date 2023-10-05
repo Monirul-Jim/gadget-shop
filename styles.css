@@ -126,3 +126,11 @@ body.light {
   background-color: black;
   color: #f9fafb;
 }
+.dark .react-tabs__tab {
+  background-color: black;
+  color: #f9fafb;
+}
+.dark .react-tabs__tab--selected {
+  background-color: #f97316;
+  color: #fff;
+}

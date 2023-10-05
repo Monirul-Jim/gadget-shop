@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import { useState } from 'react';
 
 const OrderItemReviewTable = ({ item, refetch }) => {
-    const { product_url, product_name, price } = item
+    const { menuItemId, product_url, product_name, price } = item
     const [count, setCount] = useState(1);
     const [showTotal, setShowTotal] = useState(false);
 
@@ -44,11 +44,13 @@ const OrderItemReviewTable = ({ item, refetch }) => {
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             refetch();
+
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
                                 'success'
                             )
+                            localStorage.removeItem(`added_${item.menuItemId}`);
                         }
                     })
 

@@ -4,6 +4,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import useProduct from '../../Shared/UseProduct/useProduct';
 import ProductTabFunction from './ProductTabFunction';
+import './Product.css'
 
 const Product = () => {
     const location = useLocation();
