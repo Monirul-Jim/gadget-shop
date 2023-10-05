@@ -2,33 +2,33 @@ import { useEffect, useState } from "react";
 
 
 const Nav = () => {
-    const [time, setTime] = useState("");
+    // const [time, setTime] = useState("");
 
-    useEffect(() => {
-        // Function to format the time with the international time zone
-        const formatTime = () => {
-            const options = {
-                timeZone: "Asia/Dhaka",// Replace with the desired time zone
-                hour: "numeric",
-                minute: "numeric",
-                second: "numeric",
-            };
+    // useEffect(() => {
+    //     // Function to format the time with the international time zone
+    //     const formatTime = () => {
+    //         const options = {
+    //             timeZone: "Asia/Dhaka",// Replace with the desired time zone
+    //             hour: "numeric",
+    //             minute: "numeric",
+    //             second: "numeric",
+    //         };
 
-            const formattedTime = new Intl.DateTimeFormat("en-US", options).format(
-                new Date()
-            );
-            setTime(formattedTime);
-        };
+    //         const formattedTime = new Intl.DateTimeFormat("en-US", options).format(
+    //             new Date()
+    //         );
+    //         setTime(formattedTime);
+    //     };
 
-        // Call the formatTime function to set the initial time
-        formatTime();
+    //     // Call the formatTime function to set the initial time
+    //     formatTime();
 
-        // Update the time every second
-        const intervalId = setInterval(formatTime, 1000);
+    //     // Update the time every second
+    //     const intervalId = setInterval(formatTime, 1000);
 
-        // Clean up the interval when the component unmounts
-        return () => clearInterval(intervalId);
-    }, []);
+    //     // Clean up the interval when the component unmounts
+    //     return () => clearInterval(intervalId);
+    // }, []);
 
 
 
@@ -65,7 +65,7 @@ const Nav = () => {
             <div className='flex justify-end' id="google_translate_element">
 
                 <button onClick={openTranslateDropdown}></button>
-                <p className="mr-4 text-2xl">Time: {time}</p>
+                {/* <p className="mr-4 text-2xl">Time: {time}</p> */}
             </div>
         </div>
     );

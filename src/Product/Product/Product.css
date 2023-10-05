@@ -1,0 +1,27 @@
+.react-tabs__tab-list {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+/* Tab Styles */
+.react-tabs__tab {
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 20px;
+  user-select: none;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.react-tabs__tab--selected {
+  background-color: #f97316;
+  color: #fff;
+}
+
+/* Tab Panel Styles */
+.react-tabs__tab-panel {
+  padding: 20px;
+  border-top: none;
+}

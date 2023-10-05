@@ -256,7 +256,7 @@ const Navbar = ({ toggleTheme }) => {
           <div className="modal-box w-11/12 max-w-5xl">
             <form method="dialog ">
               {/* if there is a button in the form, it will close the modal */}
-              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => document.getElementById('my_modal_3').close()}>✕</button>
+              <button type="button" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => document.getElementById('my_modal_3').close()}>✕</button>
             </form>
             <h3 className="font-bold text-lg">Search Results</h3>
             <ul className="grid grid-cols-1 lg:grid-cols-4">
@@ -269,7 +269,7 @@ const Navbar = ({ toggleTheme }) => {
                   (
                     searchResults.map((result, index) => (
                       <div key={result._id} >
-                        <Link to={`/single-product/${result._id}`}>
+                        <Link to={`/single-product/${result._id}`} onClick={() => document.getElementById('my_modal_3').close()}>
                           <div className=" mt-8 max-w-lg mx-auto card  relative w-48 h-72  rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 border border-transparent hover:border-blue-500  hover:shadow-blue-300">
                             <img className=" mx-auto" src={result.product_url} alt="" />
                             <div className=" ">
