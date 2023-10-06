@@ -3,6 +3,7 @@ import { FaMinus, FaPlus, FaTrash } from 'react-icons/fa';
 import useAxiosSecure from '../../hooks/useAxiosSecure/useAxiosSecure';
 import Swal from 'sweetalert2';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const OrderItemReviewTable = ({ item, refetch }) => {
     const { menuItemId, product_url, product_name, price } = item
@@ -50,7 +51,7 @@ const OrderItemReviewTable = ({ item, refetch }) => {
                                 'Your file has been deleted.',
                                 'success'
                             )
-                            localStorage.removeItem(`added_${item.menuItemId}`);
+                            localStorage.removeItem(`added_${menuItemId}`);
                         }
                     })
 

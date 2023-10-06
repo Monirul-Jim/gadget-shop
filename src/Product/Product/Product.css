@@ -4,7 +4,6 @@
   padding: 10px;
 }
 
-/* Tab Styles */
 .react-tabs__tab {
   padding: 10px 20px;
   margin: 0 10px;
@@ -20,7 +19,6 @@
   color: #fff;
 }
 
-/* Tab Panel Styles */
 .react-tabs__tab-panel {
   padding: 20px;
   border-top: none;

@@ -96,7 +96,7 @@ const Product = () => {
 
     return (
         <Tabs>
-            <TabList className="grid grid-cols-5 md:grid-cols-7 lg:grid-cols-10">
+            <TabList className="grid grid-cols-3 md:grid-cols-7 lg:grid-cols-10">
                 {mobileData && <>
                     <Tab>Samsung</Tab>
                     <Tab>Iphone</Tab>

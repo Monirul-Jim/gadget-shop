@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../authprovider/AuthProvider";
 const BuyNow = () => {
-    const {user}= useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const loader = useLoaderData()
     const handleConfirmOrder = (event) => {
         event.preventDefault()

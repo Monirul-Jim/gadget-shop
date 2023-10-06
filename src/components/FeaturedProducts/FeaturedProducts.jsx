@@ -24,11 +24,11 @@ const FeaturedProducts = () => {
     }, [])
     return (
         <div className='mt-20'>
-            <h1 className='text-4xl font-serif font-semibold text-center '>Featured Products</h1>
+            <h1 className='text-4xl font-serif font-semibold text-center mb-8 mt-4 '>Featured Products</h1>
             <div className="h-full">
 
                 <Tabs>
-                    <TabList>
+                    <TabList className="grid grid-cols-3 md:grid-cols-7 lg:grid-cols-10 lg:flex justify-center">
                         <Tab>New Arrival</Tab>
                         <Tab>Popular Product</Tab>
                         <Tab>Best Seller</Tab>

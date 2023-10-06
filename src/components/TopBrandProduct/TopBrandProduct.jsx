@@ -31,7 +31,7 @@ const TopBrandProduct = () => {
             <div className="h-full">
 
                 <Tabs>
-                    <TabList>
+                    <TabList className="grid grid-cols-3 md:grid-cols-7 lg:grid-cols-10 lg:flex justify-center">
                         <Tab>Samsung</Tab>
                         <Tab>Apple</Tab>
                         <Tab>Best Seller</Tab>
@@ -43,7 +43,7 @@ const TopBrandProduct = () => {
 
 
                     <TabPanel>
-                        <div className=" grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2">
+                        <div className=" grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 ">
                             {
                                 bestSeller.map(item => <ProductTabFunctionCard key={item._id} product={item}></ProductTabFunctionCard>)
                             }
