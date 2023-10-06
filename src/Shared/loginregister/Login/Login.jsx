@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../authprovider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
 
 
 const Login = () => {
@@ -56,7 +57,16 @@ const Login = () => {
                         <form onSubmit={handleLogin} className="card-body w-96">
                             <h1 className="text-3xl">Hi ! there</h1>
                             <p className="text-xl text-slate-500">Welcome back ! mobile gadget</p>
-                            <button onClick={loginWithGooglePopup} className="btn btn-primary"> G Login With Google</button>
+                            <button
+                                onClick={loginWithGooglePopup}
+                                type="button"
+                                className="btn btn-secondary mx-auto text-center w-full"
+                            >
+                                <span className="flex items-center justify-center">
+                                    <FcGoogle className="text-3xl mr-3" />
+                                    Continue with Google
+                                </span>
+                            </button>
                             <div className="form-control">
                                 {errorMessage && <p className="text-red-500">{errorMessage}</p>}
                                 {

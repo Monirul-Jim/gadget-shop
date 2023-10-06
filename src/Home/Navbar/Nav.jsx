@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-
 const Nav = () => {
     // const [time, setTime] = useState("");
 
@@ -64,7 +63,7 @@ const Nav = () => {
         <div>
             <div className='flex justify-end' id="google_translate_element">
 
-                <button onClick={openTranslateDropdown}></button>
+                <button className="translate" onClick={openTranslateDropdown}></button>
                 {/* <p className="mr-4 text-2xl">Time: {time}</p> */}
             </div>
         </div>

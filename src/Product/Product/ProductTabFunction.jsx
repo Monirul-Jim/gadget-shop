@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProductTabFunctionCard from "./ProductTabFunctionCard";
 
 const ProductsPerPage = 10;
@@ -15,7 +15,6 @@ const ProductTabFunction = ({ item }) => {
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
     };
-
     return (
 
         <div>
