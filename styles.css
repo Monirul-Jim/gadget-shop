@@ -69,6 +69,10 @@ body {
   background-color: #ffffff;
   color: #333333;
 }
+.light .add-product {
+  background-color: #ffffff;
+  color: #333333;
+}
 
 /* Example styles */
 body.light {
@@ -132,5 +136,9 @@ body.light {
 }
 .dark .react-tabs__tab--selected {
   background-color: #f97316;
+  color: #fff;
+}
+.dark .add-product {
+  background-color: gray;
   color: #fff;
 }

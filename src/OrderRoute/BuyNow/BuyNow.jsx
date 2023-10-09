@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../authprovider/AuthProvider";
 const BuyNow = () => {
@@ -191,6 +191,7 @@ const BuyNow = () => {
                                     <th>Product Name</th>
                                     <th>Ram/Rom</th>
                                     <th>Price</th>
+                                    <th>Total</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -206,7 +207,7 @@ const BuyNow = () => {
                                     </td>
                                     <td><h1>${loader?.product_name}</h1></td>
                                     <td><h1>{loader?.ram_rom}</h1></td>
-                                    <td>${loader?.price}</td>
+                                    <td> ${loader?.price}</td>
                                 </tr>
 
                             </tbody>

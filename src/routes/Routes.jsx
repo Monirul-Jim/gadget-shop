@@ -15,6 +15,7 @@ import ManageOrderedProducts from "../Dashboard/ManageOrderedProducts/ManageOrde
 import SellerHome from "../Dashboard/SellerHome/SellerHome";
 import UserHome from "../Dashboard/UserHome/UserHome";
 import UserOrderedItem from "../Dashboard/UserOrderedItem/UserOrderedItem";
+import ShowAllProduct from "../components/ShowAllProduct/ShowAllProduct";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
     {
       path: '/order-item-review',
       element: <OrderItemReview></OrderItemReview>
+    },
+    {
+      path:'/show-all-products',
+      element:<ShowAllProduct/>
     },
     {
       path: '/product/:id',
@@ -80,11 +85,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'addProduct',
-        element:<AddProducts></AddProducts>
+        element: <AddProducts></AddProducts>
       },
       {
         path: 'manageOrderedProducts',
-        element:<ManageOrderedProducts></ManageOrderedProducts>
+        element: <ManageOrderedProducts></ManageOrderedProducts>
       }
     ]
   }

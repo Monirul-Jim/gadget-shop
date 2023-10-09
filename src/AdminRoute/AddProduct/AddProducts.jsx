@@ -40,7 +40,7 @@ const AddProducts = () => {
 
     }
     return (
-        <div className="bg-slate-300">
+        <div className="bg-slate-300 add-product">
             <div className=' p-8  text-black mt-20 container mx-auto'>
                 <p className=" text-2xl font-serif text-center mt-10 mb-16">---------ADD A PRODUCT--------------</p>
                 <form onSubmit={handleAddedClasses} className="container mx-auto" >
@@ -73,7 +73,7 @@ const AddProducts = () => {
                             <label className="label">
                                 <span className="label-text">Ram/Rom</span>
                             </label>
-                            <input type="text" name='ram_rom' placeholder="Ram/Rom" className="input input-bordered w-full max-w-xs text-black" required />
+                            <input type="text" name='ram_rom' placeholder="Ram/Rom" className="input input-bordered w-full max-w-xs text-black"/>
                         </div>
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
@@ -143,6 +143,7 @@ const AddProducts = () => {
                             </label>
                             <select name="best" className="select select-bordered w-full max-w-xs text-black">
                                 <option value="">Select</option>
+                                <option value="pre-order">pre-order</option>
                                 <option value="new_launching">new_arrival</option>
                                 <option value="new_arrival">popular Product</option>
                                 <option value="best_sellers">best_sellers</option>
