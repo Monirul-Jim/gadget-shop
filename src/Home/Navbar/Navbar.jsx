@@ -72,10 +72,10 @@ const Navbar = ({ toggleTheme }) => {
         <Link> Home</Link>
       </li>
       <li>
-        <Link > <img className="h-8" src={gift} alt="" />
-          Offers
+        <Link to='/show-all-products' > <img className="h-8" src={gift} alt="" />
+          Show All
           <br />
-          Latest Offers
+          Product
         </Link>
       </li>
       <li>
@@ -260,7 +260,7 @@ const Navbar = ({ toggleTheme }) => {
               <button type="button" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => document.getElementById('my_modal_3').close()}>✕</button>
             </form>
             <h3 className="font-bold text-lg">Search Results</h3>
-            <ul className="grid grid-cols-1 lg:grid-cols-4">
+            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
 
               {

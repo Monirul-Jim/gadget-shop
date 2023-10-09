@@ -23,7 +23,7 @@ const FeaturedProducts = () => {
             })
     }, [])
     return (
-        <div className='mt-20'>
+        <div className='mt-28'>
             <h1 className='text-4xl font-serif font-semibold text-center mb-8 mt-4 '>Featured Products</h1>
             <div className="h-full">
 
