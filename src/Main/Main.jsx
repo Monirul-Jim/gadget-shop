@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../Home/Navbar/Navbar";
 import Footer from "../Shared/Footer/Footer";
 import { useEffect } from "react";
-import Nav from "../Home/Navbar/nav";
+import Nav from '../Home/Navbar/Nav'
 
 
 const Main = () => {
