@@ -27,7 +27,7 @@ const Product = () => {
     const category7 = categories.filter(item => item.sub_category === 'vivo')
     const category8 = categories.filter(item => item.sub_category === 'zte')
     const category9 = categories.filter(item => item.sub_category === 'iphone')
-    const category10=categories.filter(item=>item?.sub_category=== 'google')
+    const category10 = categories.filter(item => item?.sub_category === 'google')
     console.log(category10);
     const categoryAppleAdapter = categories.filter(item => item.sub_category === 'apple_adapter')
     const categoryAnkerAdapter = categories.filter(item => item.sub_category === 'anker_adapter')
@@ -53,7 +53,7 @@ const Product = () => {
     const oneplusEarphone = categories.filter(item => item.sub_category === 'oneplus_earphone')
 
     useEffect(() => {
-        fetch("http://localhost:5000/filter-collections")
+        fetch("https://gadget-shop-server.vercel.app/filter-collections")
             .then(response => response.json())
             .then(data => {
                 const mobile = data.filter(item => item.name === 'mobile');

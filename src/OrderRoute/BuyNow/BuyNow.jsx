@@ -24,7 +24,7 @@ const BuyNow = () => {
         const ram = loader?.ram_rom
         const id = loader?._id
         const allAddProduct = { name, last, email, number, division, district, area, post, address, feedback, price, image, product, ram, id }
-        fetch('http://localhost:5000/confirm-order-post', {
+        fetch('https://gadget-shop-server.vercel.app/confirm-order-post', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

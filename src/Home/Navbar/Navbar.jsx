@@ -37,7 +37,7 @@ const Navbar = ({ toggleTheme }) => {
 
   const handleSearch = () => {
     setSearching(true)
-    fetch(`http://localhost:5000/search-product/${searchText}`)
+    fetch(`https://gadget-shop-server.vercel.app/search-product/${searchText}`)
 
 
       .then(res => res.json())
