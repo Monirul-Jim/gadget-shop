@@ -16,6 +16,8 @@ import SellerHome from "../Dashboard/SellerHome/SellerHome";
 import UserHome from "../Dashboard/UserHome/UserHome";
 import UserOrderedItem from "../Dashboard/UserOrderedItem/UserOrderedItem";
 import ShowAllProduct from "../components/ShowAllProduct/ShowAllProduct";
+import UpdateInfoProduct from "../Dashboard/UpdateInfoProduct/UpdateInfoProduct";
+import EditProduct from "../Dashboard/UpdateInfoProduct/EditProduct/EditProduct";
 
 const router = createBrowserRouter([
   {
@@ -59,7 +61,12 @@ const router = createBrowserRouter([
       path: '/single-product/:id',
       element: <BuyNow></BuyNow>,
       loader: ({ params }) => fetch(`http://localhost:5000/unique-product/${params.id}`)
-    }
+    },
+   {
+    path:'/seller-update-product-id/:id',
+    element:<EditProduct></EditProduct>,
+    loader:({params})=>fetch(`http://localhost:5000/seller-update-product/${params.id}`)
+   }
 
     ]
   },
@@ -73,23 +80,27 @@ const router = createBrowserRouter([
       },
       {
         path: 'userHome',
-        element: <UserHome></UserHome>
+        element: <UserHome/>
       },
       {
         path: 'userOrderedItem',
-        element: <UserOrderedItem></UserOrderedItem>
+        element: <UserOrderedItem/>
       },
       {
         path: 'sellerHome',
-        element: <SellerHome></SellerHome>
+        element: <SellerHome/>
       },
       {
         path: 'addProduct',
-        element: <AddProducts></AddProducts>
+        element: <AddProducts/>
       },
       {
         path: 'manageOrderedProducts',
-        element: <ManageOrderedProducts></ManageOrderedProducts>
+        element: <ManageOrderedProducts/>
+      },
+      {
+        path:'update-product-info',
+        element:<UpdateInfoProduct/>
       }
     ]
   }

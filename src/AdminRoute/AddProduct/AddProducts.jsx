@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../authprovider/AuthProvider";
 import Swal from "sweetalert2";
+import moment from "moment";
 
 
 const AddProducts = () => {
@@ -16,7 +17,8 @@ const AddProducts = () => {
         const email = user ? user.email : form.email.value;
         const price = parseFloat(form.price.value)
         const ram_rom = form.ram_rom.value
-        const addClasses = { product_url, product_name, ram_rom, email, price, category, sub_category, best }
+        const currentDateAndTime = moment().format("YYYY-MM-DD HH:mm:ss")
+        const addClasses = { product_url, product_name, ram_rom, email, price, category, sub_category, best,date_added: currentDateAndTime }
         fetch('http://localhost:5000/seller-added-product', {
             method: "POST",
             headers: {

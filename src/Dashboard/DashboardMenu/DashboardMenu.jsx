@@ -44,9 +44,9 @@ const DashboardMenu = () => {
                             <li className="text-2xl">
                                 <Link to="/dashboard-for-all/sellerHome"><FaHome></FaHome>Seller Home</Link>
                             </li>
-                            {/* <li className="text-2xl">
-                                <Link><FaAddressBook></FaAddressBook></Link>
-                            </li> */}
+                            <li className="text-2xl">
+                                <Link to='/dashboard-for-all/update-product-info'><FaAddressBook></FaAddressBook>Update Product Info</Link>
+                            </li>
                             <li className="text-2xl">
                                 <Link to='/dashboard-for-all/manageOrderedProducts'><FaWallet></FaWallet>Ordered Products</Link>
                             </li>
