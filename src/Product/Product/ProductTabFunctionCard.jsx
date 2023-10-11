@@ -27,7 +27,7 @@ const ProductTabFunctionCard = ({ product }) => {
                 });
             } else {
                 const cartItem = { menuItemId: _id, product_name, product_url, price, email: user.email };
-                fetch('http://localhost:5000/product-added-database', {
+                fetch('https://gadget-shop-server.vercel.app/product-added-database', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

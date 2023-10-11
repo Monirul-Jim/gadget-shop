@@ -9,7 +9,7 @@ const FeaturedProducts = () => {
     const [newArrival, setNewArrival] = useState([])
     const [newLaunching, setNewLaunching] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/product-collections')
+        fetch('https://gadget-shop-server.vercel.app/product-collections')
             .then(res => res.json())
             .then(data => {
                 const bestSellerCategory = data.filter(item => item.sub_category === 'best_sellers')

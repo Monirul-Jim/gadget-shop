@@ -12,7 +12,7 @@ const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/';
-    // fetch('http://localhost:5000//all-user')
+    // fetch('https://gadget-shop-server.vercel.app//all-user')
 
     const handleLogin = event => {
         event.preventDefault();

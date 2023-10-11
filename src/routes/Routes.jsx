@@ -50,8 +50,8 @@ const router = createBrowserRouter([
       element: <OrderItemReview></OrderItemReview>
     },
     {
-      path:'/show-all-products',
-      element:<ShowAllProduct/>
+      path: '/show-all-products',
+      element: <ShowAllProduct />
     },
     {
       path: '/product/:id',
@@ -60,13 +60,13 @@ const router = createBrowserRouter([
     {
       path: '/single-product/:id',
       element: <BuyNow></BuyNow>,
-      loader: ({ params }) => fetch(`http://localhost:5000/unique-product/${params.id}`)
+      loader: ({ params }) => fetch(`https://gadget-shop-server.vercel.app/unique-product/${params.id}`)
     },
-   {
-    path:'/seller-update-product-id/:id',
-    element:<EditProduct></EditProduct>,
-    loader:({params})=>fetch(`http://localhost:5000/seller-update-product/${params.id}`)
-   }
+    {
+      path: '/seller-update-product-id/:id',
+      element: <EditProduct></EditProduct>,
+      loader: ({ params }) => fetch(`https://gadget-shop-server.vercel.app/seller-update-product/${params.id}`)
+    }
 
     ]
   },
@@ -80,27 +80,27 @@ const router = createBrowserRouter([
       },
       {
         path: 'userHome',
-        element: <UserHome/>
+        element: <UserHome />
       },
       {
         path: 'userOrderedItem',
-        element: <UserOrderedItem/>
+        element: <UserOrderedItem />
       },
       {
         path: 'sellerHome',
-        element: <SellerHome/>
+        element: <SellerHome />
       },
       {
         path: 'addProduct',
-        element: <AddProducts/>
+        element: <AddProducts />
       },
       {
         path: 'manageOrderedProducts',
-        element: <ManageOrderedProducts/>
+        element: <ManageOrderedProducts />
       },
       {
-        path:'update-product-info',
-        element:<UpdateInfoProduct/>
+        path: 'update-product-info',
+        element: <UpdateInfoProduct />
       }
     ]
   }

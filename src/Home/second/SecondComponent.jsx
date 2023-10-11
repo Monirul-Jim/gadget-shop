@@ -11,7 +11,7 @@ const SecondComponent = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/filter-collections')
+        fetch('https://gadget-shop-server.vercel.app/filter-collections')
             .then(res => res.json())
             .then(data => {
                 setCategories(data)

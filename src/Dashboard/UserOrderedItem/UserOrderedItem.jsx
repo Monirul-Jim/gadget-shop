@@ -6,7 +6,7 @@ const UserOrderedItem = () => {
     const { user } = useContext(AuthContext)
     useEffect(() => {
         if (user && user.email) { // Check if user and user.email are not null/undefined
-            fetch(`http://localhost:5000/confirmProduct?cus_email=${user.email}`)
+            fetch(`https://gadget-shop-server.vercel.app/confirmProduct?cus_email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setOrderedProduct(data);
@@ -41,4 +41,4 @@ const UserOrderedItem = () => {
 
 export default UserOrderedItem;
 
-// http://localhost:5000/confirmProduct?cus_email=coding@gmail.com
+// https://gadget-shop-server.vercel.app/confirmProduct?cus_email=coding@gmail.com

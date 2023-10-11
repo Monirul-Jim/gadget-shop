@@ -34,7 +34,7 @@ const UpdateInfoProduct = () => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/product-collections')
+        fetch('https://gadget-shop-server.vercel.app/product-collections')
             .then(res => res.json())
             .then(data => {
                 setProducts(data)
@@ -156,20 +156,20 @@ const UpdateInfoProduct = () => {
                 Seller Update Product Info <br /> Total Product: {products.length}
             </h1>
             <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>Product Image</th>
-                            <th>Product Name</th>
-                            <th>Unit Price</th>
-                            <th>Update</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            isLoading?(
-                                <div aria-label="Loading..." role="status" className="flex justify-center items-center space-x-2">
+                {/* head */}
+                <thead>
+                    <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Unit Price</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        isLoading ? (
+                            <div aria-label="Loading..." role="status" className="flex justify-center items-center space-x-2">
                                 <svg className="h-20 w-20 animate-spin stroke-gray-500" viewBox="0 0 256 256">
                                     <line x1="128" y1="32" x2="128" y2="64" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line>
                                     <line x1="195.9" y1="60.1" x2="173.3" y2="82.7" strokeLinecap="round" strokeLinejoin="round"
@@ -188,20 +188,20 @@ const UpdateInfoProduct = () => {
                                 </svg>
                                 <span className="text-4xl font-medium text-gray-500">Loading...</span>
                             </div>
-                            ):(
-                              productsToDisplay.map((item,index) => (
+                        ) : (
+                            productsToDisplay.map((item, index) => (
                                 <tr key={item._id}>
                                     <td>
-                                        <td>{index+1}</td>
-                                     <td>
-                                     <div className="flex items-center space-x-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={item.product_url} alt="Phone Pic" />
+                                        <td>{index + 1}</td>
+                                        <td>
+                                            <div className="flex items-center space-x-3">
+                                                <div className="avatar">
+                                                    <div className="mask mask-squircle w-12 h-12">
+                                                        <img src={item.product_url} alt="Phone Pic" />
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                     </td>
+                                        </td>
                                     </td>
                                     <td><h1>{item.product_name}</h1></td>
                                     <td>${item.price}</td>
@@ -211,13 +211,13 @@ const UpdateInfoProduct = () => {
                                     </th>
                                 </tr>
                             ))
-                            )
-                          
-                        }
+                        )
 
-                    </tbody>
+                    }
 
-                </table>
+                </tbody>
+
+            </table>
 
             {/* {
                 isLoading ? (

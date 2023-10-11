@@ -18,8 +18,8 @@ const AddProducts = () => {
         const price = parseFloat(form.price.value)
         const ram_rom = form.ram_rom.value
         const currentDateAndTime = moment().format("YYYY-MM-DD HH:mm:ss")
-        const addClasses = { product_url, product_name, ram_rom, email, price, category, sub_category, best,date_added: currentDateAndTime }
-        fetch('http://localhost:5000/seller-added-product', {
+        const addClasses = { product_url, product_name, ram_rom, email, price, category, sub_category, best, date_added: currentDateAndTime }
+        fetch('https://gadget-shop-server.vercel.app/seller-added-product', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -75,7 +75,7 @@ const AddProducts = () => {
                             <label className="label">
                                 <span className="label-text">Ram/Rom</span>
                             </label>
-                            <input type="text" name='ram_rom' placeholder="Ram/Rom" className="input input-bordered w-full max-w-xs text-black"/>
+                            <input type="text" name='ram_rom' placeholder="Ram/Rom" className="input input-bordered w-full max-w-xs text-black" />
                         </div>
                         <div className="form-control w-full max-w-xs">
                             <label className="label">

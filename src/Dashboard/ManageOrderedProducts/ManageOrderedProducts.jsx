@@ -4,7 +4,7 @@ import { set } from 'react-hook-form';
 const ManageOrderedProducts = () => {
   const [orderedProduct, setOrderedProduct] = useState([])
   useEffect(() => {
-    fetch('http://localhost:5000/get-order-product')
+    fetch('https://gadget-shop-server.vercel.app/get-order-product')
       .then(res => res.json())
       .then(data => {
         console.log(data?.info?.cus_email)
