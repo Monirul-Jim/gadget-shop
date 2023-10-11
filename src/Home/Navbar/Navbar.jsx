@@ -139,7 +139,7 @@ const Navbar = ({ toggleTheme }) => {
                 <div role="status">
                   <svg
                     aria-hidden="true"
-                    className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                    className="w-8 h-8 mr-2 z-50 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
                     viewBox="0 0 100 101"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -158,7 +158,7 @@ const Navbar = ({ toggleTheme }) => {
               </div>
             ) : (
               <ul
-                className="py-2 bg-white  dark:bg-black"
+                className="py-2 dark:bg-black"
                 aria-labelledby="user-menu-button"
               >
                 <li>
@@ -172,7 +172,7 @@ const Navbar = ({ toggleTheme }) => {
                 <li>
                   <Link
                     to="#"
-                    className="block px-4 z-50 py-2 text-2xl text-black dark:text-white"
+                    className="block px-4 z-50 py-2 text-2xl  text-black dark:text-white"
                   >
                     Settings
                   </Link>
@@ -180,13 +180,13 @@ const Navbar = ({ toggleTheme }) => {
                 <li>
                   <Link
                     to="#"
-                    className="block px-4 py-2 text-2xl text-black dark:text-white"
+                    className="block px-4 py-2 z-50 text-2xl text-black dark:text-white"
                   >
                     Earnings
                   </Link>
                 </li>
                 <li>
-                  <div className="list-none text-2xl text-black dark:text-white">
+                  <div className="list-none text-2xl z-50 text-black dark:text-white">
                     <button onClick={handleLogoutButtonClick}>
                       Logout
                     </button>

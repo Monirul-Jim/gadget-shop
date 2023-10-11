@@ -27,6 +27,8 @@ const Product = () => {
     const category7 = categories.filter(item => item.sub_category === 'vivo')
     const category8 = categories.filter(item => item.sub_category === 'zte')
     const category9 = categories.filter(item => item.sub_category === 'iphone')
+    const category10=categories.filter(item=>item?.sub_category=== 'google')
+    console.log(category10);
     const categoryAppleAdapter = categories.filter(item => item.sub_category === 'apple_adapter')
     const categoryAnkerAdapter = categories.filter(item => item.sub_category === 'anker_adapter')
     const categorySamsungAdapter = categories.filter(item => item.sub_category === 'samsung_adapter')
@@ -100,6 +102,7 @@ const Product = () => {
                 {mobileData && <>
                     <Tab>Samsung</Tab>
                     <Tab>Iphone</Tab>
+                    <Tab>Google</Tab>
                     <Tab>Asus</Tab>
                     <Tab>Xiaomi</Tab>
                     <Tab>OnePlus</Tab>
@@ -144,6 +147,7 @@ const Product = () => {
             {mobileData && <>
                 <TabPanel><ProductTabFunction item={category1}></ProductTabFunction> </TabPanel>
                 <TabPanel><ProductTabFunction item={category9}></ProductTabFunction> </TabPanel>
+                <TabPanel><ProductTabFunction item={category10}></ProductTabFunction> </TabPanel>
                 <TabPanel><ProductTabFunction item={category3}></ProductTabFunction> </TabPanel>
                 <TabPanel><ProductTabFunction item={category4}></ProductTabFunction> </TabPanel>
                 <TabPanel><ProductTabFunction item={category5}></ProductTabFunction> </TabPanel>

@@ -1,0 +1,21 @@
+/* Small screens (up to 767px) */
+@media (max-width: 767px) {
+    .mySwiper .swiper-slide {
+      flex-basis: calc(50% - 15px); /* Display 2 slides per row */
+    }
+  }
+  
+  /* Medium screens (768px - 1023px) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .mySwiper .swiper-slide {
+      flex-basis: calc(33.333% - 15px); /* Display 3 slides per row */
+    }
+  }
+  
+  /* Large screens (1024px and above) */
+  @media (min-width: 1024px) {
+    .mySwiper .swiper-slide {
+      flex-basis: calc(20% - 15px); /* Display 5 slides per row */
+    }
+  }
+  
