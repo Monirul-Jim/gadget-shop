@@ -9,7 +9,6 @@ import users from '../../assets/user.webp'
 import cart from '../../assets/cart.webp'
 import gift from '../../assets/gift.webp'
 import useGetProduct from "../../hooks/useGetProduct";
-import { IoSearchSharp } from "react-icons/io5";
 
 
 const Navbar = ({ toggleTheme }) => {
@@ -55,6 +54,10 @@ const Navbar = ({ toggleTheme }) => {
       handleSearch();
     }
   };
+  // const handleOnChangeResult=(value)=>{
+  //   setSearchText(value)
+  //   handleSearch(value)
+  // }
 
   useEffect(() => {
     if (!isOpen) {
@@ -245,7 +248,7 @@ const Navbar = ({ toggleTheme }) => {
           <div className="form-control">
             <div className="input-group">
               <input type="text" onChange={(e) => setSearchText(e.target.value)}
-                onKeyPress={handleKeyPress} placeholder="Search…" className="input input-bordered" />
+                onKeyPress={handleKeyPress} placeholder="Search…" className="input input-bordered z-50" />
               <button onClick={handleSearch} className="btn btn-square">
                 {searching ? 'Searching...' : <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>}
 
@@ -253,10 +256,9 @@ const Navbar = ({ toggleTheme }) => {
             </div>
           </div>
         </div>
-        <dialog id="my_modal_3" className="modal ">
+        <dialog id="my_modal_3" className="modal">
           <div className="modal-box w-11/12 max-w-5xl">
             <form method="dialog ">
-              {/* if there is a button in the form, it will close the modal */}
               <button type="button" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => document.getElementById('my_modal_3').close()}>✕</button>
             </form>
             <h3 className="font-bold text-lg">Search Results</h3>
