@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import './nav.css'
 
 const Nav = () => {
 
@@ -13,11 +14,9 @@ const Nav = () => {
     const googleTranslateElementInit = () => {
         new window.google.translate.TranslateElement({
             pageLanguage: 'en',
-            autoDisplay: false, // Disable automatic display
+            autoDisplay: false,
         }, 'google_translate_element');
     }
-
-    // Function to open the language dropdown
     const openTranslateDropdown = () => {
         const widget = window.google.translate.TranslateElement.getInstance();
         if (widget) {
