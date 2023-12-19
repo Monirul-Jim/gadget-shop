@@ -1,10 +1,9 @@
-#google_translate_element {
-    /* Add your custom styles here */
-  }
+/* #google_translate_element {
+  } */
   #google_translate_element img{
     display: none !important;
   }
-  .goog-te-gadget-simple {
+  /* .goog-te-gadget-simple {
     background-color: rgb(226 232 240 / var(--tw-bg-opacity)) !important ;   
     border-left: 0px solid #D5D5D5  !important;
     border-top: 0px solid #9B9B9B !important;
@@ -14,4 +13,4 @@
   }
   .goog-te-gadget {
     color: white !important;
-}
+} */

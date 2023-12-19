@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../authprovider/AuthProvider";
 import Swal from "sweetalert2";
 import useGetProduct from "../../hooks/useGetProduct";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const ProductTabFunctionCard = ({ product }) => {
@@ -21,9 +23,8 @@ const ProductTabFunctionCard = ({ product }) => {
     const handleAddToCart = () => {
         if (user && user.email) {
             if (isAddedToCart) {
-                Swal.fire({
-                    icon: 'info',
-                    title: 'Product is already in the cart',
+                toast.info('Product is already in the cart', {
+                    autoClose: 1000
                 });
             } else {
                 const cartItem = { menuItemId: _id, product_name, product_url, price, email: user.email };
@@ -40,12 +41,9 @@ const ProductTabFunctionCard = ({ product }) => {
                             refetch();
                             setIsAddedToCart(true);
                             localStorage.setItem(`added_${_id}`, "true");
-                            Swal.fire({
-                                position: 'top-end',
-                                icon: 'success',
-                                title: `${product_name} added to the cart`,
-                                showConfirmButton: false,
-                                timer: 1500
+                            toast.success(`${product_name} added to the cart`, {
+                                position: toast.POSITION.TOP_RIGHT,
+                                autoClose: 1300,
                             });
                         }
                     });

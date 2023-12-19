@@ -1,7 +1,7 @@
 // import React, { Component } from 'react';
 import mac from '../../assets/2-Macbook-Air-M2-5534.jpg'
 import pixel from '../../assets/4-Google-Pixel-7a-7981.jpg'
-import gp from '../../assets/Campaign-Web-Banner-OP-7109.png'
+import gp from '../../assets/Pixel-8-&-8-Pro-Slider-(1)-4701.webp'
 import fold5 from '../../assets/Fold5-1916.jpg'
 import watch from '../../assets/HUAWEI-WATCH-4-Pro-4702.jpg'
 import airpod from '../../assets/Anker-Soundcore-Liberty-4-6816.jpg'
