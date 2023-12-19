@@ -73,7 +73,6 @@ body {
   background-color: #ffffff;
   color: #333333;
 }
-
 /* Example styles */
 body.light {
   background-color: var(--color-bg-primary);

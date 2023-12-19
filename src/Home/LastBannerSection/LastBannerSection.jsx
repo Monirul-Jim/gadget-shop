@@ -21,7 +21,7 @@ const LastBannerSection = () => {
                 <h1>Shop By Brands</h1>
                <div className='flex justify-center'>
                <div className='grid grid-cols-5 w-[450px] gap-8'>
-                    <img src={shop1} alt="" />
+                  <img src={shop1} alt="" />
                     <img src={shop2} alt="" />
                     <img src={shop3} alt="" />
                     <img src={shop4} alt="" />

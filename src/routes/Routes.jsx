@@ -18,6 +18,7 @@ import UserOrderedItem from "../Dashboard/UserOrderedItem/UserOrderedItem";
 import ShowAllProduct from "../components/ShowAllProduct/ShowAllProduct";
 import UpdateInfoProduct from "../Dashboard/UpdateInfoProduct/UpdateInfoProduct";
 import EditProduct from "../Dashboard/UpdateInfoProduct/EditProduct/EditProduct";
+import ProceedOrder from "../components/OrderItemReview/ProceedOrder";
 
 const router = createBrowserRouter([
   {
@@ -35,19 +36,23 @@ const router = createBrowserRouter([
     },
     {
       path: '/login',
-      element: <LoginAuth></LoginAuth>
+      element: <LoginAuth />
     },
     {
       path: '/register',
-      element: <RegisterAuth></RegisterAuth>
+      element: <RegisterAuth />
     },
     {
       path: '/add-product',
-      element: <AddProducts></AddProducts>
+      element: <AddProducts />
     },
     {
       path: '/order-item-review',
-      element: <OrderItemReview></OrderItemReview>
+      element: <OrderItemReview />
+    },
+    {
+      path: '/proceed-order',
+      element: <ProceedOrder />
     },
     {
       path: '/show-all-products',
@@ -55,16 +60,16 @@ const router = createBrowserRouter([
     },
     {
       path: '/product/:id',
-      element: <Product></Product>
+      element: <Product />
     },
     {
       path: '/single-product/:id',
-      element: <BuyNow></BuyNow>,
+      element: <BuyNow />,
       loader: ({ params }) => fetch(`https://gadget-shop-server.vercel.app/unique-product/${params.id}`)
     },
     {
       path: '/seller-update-product-id/:id',
-      element: <EditProduct></EditProduct>,
+      element: <EditProduct />,
       loader: ({ params }) => fetch(`https://gadget-shop-server.vercel.app/seller-update-product/${params.id}`)
     }
 
@@ -72,7 +77,7 @@ const router = createBrowserRouter([
   },
   {
     path: 'dashboard-for-all',
-    element: <DashboardMenu></DashboardMenu>,
+    element: <DashboardMenu />,
     children: [
       {
         path: 'all-user-collection',

@@ -15,7 +15,6 @@ const DashboardMenu = () => {
             <div className="drawer-content">
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 <Outlet></Outlet>
-
             </div>
             <div className="drawer-side text-white bg-gray-800">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>

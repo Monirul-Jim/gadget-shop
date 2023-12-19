@@ -1,88 +1,117 @@
 
 import { Link } from "react-router-dom";
 import useGetProduct from "../../hooks/useGetProduct";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
-import { FaMinus, FaPlus, FaTrash } from "react-icons/fa";
-import Swal from "sweetalert2";
-// import OrderItemReviewTable from "./OrderItemReviewTable";
+// import { FaMinus, FaPlus, FaTrash } from "react-icons/fa";
+// import Swal from "sweetalert2";
+// import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import OrderItemReviewTable from "./OrderItemReviewTable";
+import './OrderItem.css'
 
 const OrderItemReview = () => {
     const [product, refetch] = useGetProduct()
-    const [axiosSecure] = useAxiosSecure()
-    const [quantity, setQuantity] = useState({});
-    const [showTotal, setShowTotal] = useState(false);
-    useEffect(() => {
-        const initialQuantity = {};
-        product.forEach((product) => {
-            initialQuantity[product._id] = 1;
-        });
-        setQuantity(initialQuantity);
-    }, [product]);
+    const { _id } = product
+    // const [axiosSecure] = useAxiosSecure()
+    //     const [quantity, setQuantity] = useState({});
+    //     const [showTotal, setShowTotal] = useState(false);
+    //     useEffect(() => {
+    //         const initialQuantity = {};
+    //         product.forEach((product) => {
+    //             initialQuantity[product._id] = 1;
+    //         });
+    //         setQuantity(initialQuantity);
+    //     }, [product]);
 
-    const incrementValue = (productId) => {
-        setQuantity((prevQuantity) => ({
-            ...prevQuantity,
-            [productId]: (prevQuantity[productId] || 1) + 1,
-        }));
-        setShowTotal(true);
-    };
+    //     const incrementValue = (productId) => {
+    //         setQuantity((prevQuantity) => ({
+    //             ...prevQuantity,
+    //             [productId]: (prevQuantity[productId] || 1) + 1,
+    //         }));
+    //         setShowTotal(true);
+    //     };
 
-    const decrementValue = (productId) => {
-        if (quantity[productId] > 1) {
-            setQuantity((prevQuantity) => ({
-                ...prevQuantity,
-                [productId]: prevQuantity[productId] - 1,
-            }));
-            setShowTotal(true);
-        }
-    };
+    //     const decrementValue = (productId) => {
+    //         if (quantity[productId] > 1) {
+    //             setQuantity((prevQuantity) => ({
+    //                 ...prevQuantity,
+    //                 [productId]: prevQuantity[productId] - 1,
+    //             }));
+    //             setShowTotal(true);
+    //         }
+    //     };
 
-    const getTotalPrice = (productId, price) => {
-        return (quantity[productId] || 1) * price;
-    };
+    //     const getTotalPrice = (productId, price) => {
+    //         return (quantity[productId] || 1) * price;
+    //     };
 
-    // here i make sub total calculate
-    const calculateSubtotal = () => {
-        let subtotal = 0;
-        product.forEach((item) => {
-            subtotal += getTotalPrice(item._id, item.price);
-        });
-        return parseFloat(subtotal).toFixed(2);
-    };
+    //     // here i make sub total calculate
+    //     const calculateSubtotal = () => {
+    //         let subtotal = 0;
+    //         product.forEach((item) => {
+    //             subtotal += getTotalPrice(item._id, item.price);
+    //         });
+    //         return parseFloat(subtotal).toFixed(2);
+    //     };
 
 
-    const handleDeleteProductItem = item => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
 
-                axiosSecure.delete(`/product-delete/${item._id}`)
-                    .then(res => {
-                        if (res.data.deletedCount > 0) {
-                            refetch();
+    //     const handleAddProduct = () => {
+    //         const cartItems ={
 
-                            Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                            )
-                            localStorage.removeItem(`added_${item.menuItemId}`);
-                        }
-                    })
 
-            }
-        })
+    //         }
+    //          fetch('https://gadget-shop-server.vercel.app/quantity-product-added', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'content-type': 'application/json'
+    //             },
+    //             body: JSON.stringify(cartItems)
+    //         })
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 if (data.insertedId) {
+    //                     toast.success('your product is ready for order', {
+    //                         position: toast.POSITION.TOP_RIGHT,
+    //                         autoClose: 1300,
+    //                     });
+    //                 }
+    //             })
+    // }
 
-    }
-    // here i make payment gateway
+
+
+    // const handleDeleteProductItem = item => {
+    //     Swal.fire({
+    //         title: 'Are you sure?',
+    //         text: "You won't be able to revert this!",
+    //         icon: 'warning',
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#3085d6',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Yes, delete it!'
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+
+    //             axiosSecure.delete(`/product-delete/${item._id}`)
+    //                 .then(res => {
+    //                     if (res.data.deletedCount > 0) {
+    //                         refetch();
+
+    //                         Swal.fire(
+    //                             'Deleted!',
+    //                             'Your file has been deleted.',
+    //                             'success'
+    //                         )
+    //                         localStorage.removeItem(`added_${item.menuItemId}`);
+    //                     }
+    //                 })
+
+    //         }
+    //     })
+
+    // }
 
     return (
         <div className="mt-8">
@@ -105,41 +134,41 @@ const OrderItemReview = () => {
                     <tbody>
                         {
                             product.map((item) => (
-                                <tr key={item._id}>
-                                    <td>
-                                        <div className="flex items-center space-x-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={item.product_url} alt="Phone Pic" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><h1>${item.product_name}</h1></td>
-                                    <td>
-                                        <button onClick={() => incrementValue(item._id)}><FaPlus></FaPlus></button>
-                                        <input className="w-6 text-center" type="text" value={quantity[item._id] || 1} readOnly />
-                                        <button onClick={() => decrementValue(item._id)}><FaMinus></FaMinus></button>
-                                    </td>
-                                    <td>${item.price}</td>
-                                    <td>${getTotalPrice(item._id, item.price)}</td>
-                                    <th>
-                                        <button onClick={() => handleDeleteProductItem(item)}><FaTrash></FaTrash></button>
-                                    </th>
-                                </tr>
+                                <OrderItemReviewTable key={item._id} item={item} refetch={refetch}></OrderItemReviewTable>
+                                // <tr key={item._id}>
+                                //     <td>
+                                //         <div className="flex items-center space-x-3">
+                                //             <div className="avatar">
+                                //                 <div className="mask mask-squircle w-12 h-12">
+                                //                     <img src={item.product_url} alt="Phone Pic" />
+                                //                 </div>
+                                //             </div>
+                                //         </div>
+                                //     </td>
+                                //     <td><h1>${item.product_name}</h1></td>
+                                //     <td>
+                                //         <button onClick={() => incrementValue(item._id)}><FaPlus></FaPlus></button>
+                                //         <input className="w-6 text-center" type="text" value={quantity[item._id] || 1} readOnly />
+                                //         <button onClick={() => decrementValue(item._id)}><FaMinus></FaMinus></button>
+                                //     </td>
+                                //     <td>${item.price}</td>
+                                //     <td>${getTotalPrice(item._id, item.price)}</td>
+                                //     <th>
+                                //         <button onClick={() => handleDeleteProductItem(item)}><FaTrash></FaTrash></button>
+                                //     </th>
+                                // </tr>
                             ))
                         }
-
                     </tbody>
-
                 </table>
                 <div className="flex justify-end gap-16">
-                    <h1 className="text-xl ">Sub Total: ${calculateSubtotal()}</h1>
-                    <Link>
-
-                        <button className="mr-36 bg-orange-400 p-1 px-4 font-semibold rounded-md text-white">Check Out</button>
-                    </Link>
+                    <Link to='/proceed-order'> <button className="mr-36 bg-orange-400 p-1 px-4 font-semibold rounded-md text-white">Confirm Order</button></Link>
                 </div>
+                {/* <div className="flex justify-end gap-16">
+                <h1 className="text-xl ">Sub Total: ${calculateSubtotal()}</h1>
+                <button onClick={handleAddProduct} className="mr-36 bg-orange-400 p-1 px-4 font-semibold rounded-md text-white">Check Out</button>
+
+            </div> */}
             </div>
         </div>
     );

@@ -10,7 +10,6 @@ import cart from '../../assets/cart.webp'
 import gift from '../../assets/gift.webp'
 import useGetProduct from "../../hooks/useGetProduct";
 
-
 const Navbar = ({ toggleTheme }) => {
   const { user, logOut } = useContext(AuthContext)
   const [showLogout, setShowLogout] = useState(false);
@@ -68,7 +67,6 @@ const Navbar = ({ toggleTheme }) => {
     logOut();
     setShowLogout(false);
   };
-
   const navOptions = (
     <ul className="flex flex-col nav_options space-y-4 lg:space-y-0 lg:flex-row lg:items-center">
       <li className="text-white">

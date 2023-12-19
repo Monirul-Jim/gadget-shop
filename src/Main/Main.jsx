@@ -3,8 +3,6 @@ import Navbar from "../Home/Navbar/Navbar";
 import Footer from "../Shared/Footer/Footer";
 import { useEffect } from "react";
 import Nav from '../Home/Navbar/Nav'
-
-
 const Main = () => {
   useEffect(() => {
     const currentTheme = localStorage.getItem('theme');
@@ -25,7 +23,7 @@ const Main = () => {
   };
 
   return (
-    <div>
+    <div className="container mx-auto">
       <Nav></Nav>
       <Navbar toggleTheme={toggleTheme}></Navbar>
       <Outlet></Outlet>

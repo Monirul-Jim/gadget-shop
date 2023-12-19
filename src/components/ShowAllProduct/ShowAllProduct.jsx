@@ -36,13 +36,12 @@ const ShowAllProduct = () => {
                 setIsLoading(false);
             })
             .catch((error) => {
-                // Handle errors
-                setIsLoading(false); // Set isLoading to false even if there's an error
+                setIsLoading(false);
             });
     }, []);
 
     const renderPaginationButtons = () => {
-        const maxButtonsToShow = 5; // You can adjust this number
+        const maxButtonsToShow = 5;
         const buttons = [];
 
         if (totalPages <= maxButtonsToShow) {
@@ -70,13 +69,9 @@ const ShowAllProduct = () => {
                     1
                 </button>
             );
-
-            // Show ellipsis if currentPage is not close to the beginning
             if (currentPage > 3) {
                 buttons.push(<span key="ellipsis1">...</span>);
             }
-
-            // Calculate which pages to show around the current page
             const pagesToShow = [];
             const startPage = Math.max(currentPage - 1, 2);
             const endPage = Math.min(currentPage + 1, totalPages - 1);
@@ -156,7 +151,7 @@ const ShowAllProduct = () => {
 
             <div className="mt-12 mb-6 flex justify-center">
                 <button
-                    className="mr-2 px-4 py-2 bg-orange-400 text-white rounded-md"
+                    className="mr-2 px-2 py-2 bg-orange-400 text-white rounded-md"
                     onClick={handlePreviousPage}
                     disabled={currentPage === 1}
                 >
@@ -164,7 +159,7 @@ const ShowAllProduct = () => {
                 </button>
                 {renderPaginationButtons()}
                 <button
-                    className="ml-2 px-4 py-2 bg-orange-400 text-white rounded-md"
+                    className="ml-2 px-2 py-2 bg-orange-400 text-white rounded-md"
                     onClick={handleNextPage}
                     disabled={currentPage === totalPages}
                 >
